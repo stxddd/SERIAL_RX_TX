@@ -170,7 +170,7 @@ int main()
             continue;
         }
 
-        printf("%s открыт с скоростью %lu. Введите текст для отправки (exit для выхода, stop для смены порта/скорости):\n", port, baud);
+        printf("%s открыт с скоростью %lu. Введите текст для отправки (!e() для выхода, !s() для смены порта/скорости):\n", port, baud);
 
         char input[256];
         while (1)
@@ -178,13 +178,13 @@ int main()
             fgets(input, sizeof(input), stdin);
             input[strcspn(input, "\n")] = 0;
 
-            if (strcmp(input, "exit") == 0)
+            if (strcmp(input, "!e()") == 0)
             {
                 CloseHandle(hSerial);
                 return 0;
             }
 
-            if (strcmp(input, "stop") == 0)
+            if (strcmp(input, "!s()") == 0)
             {
                 CloseHandle(hSerial);
                 break; 
